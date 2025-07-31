@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-gvlgsaak-gitops
+  description: This is GitOps manifest for go-gvlgsaak   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-gvlgsaak
+    backstage.io/kubernetes-id: go-gvlgsaak 
+    backstage.io/techdocs-ref: dir:. 
+    jenkins.io/job-full-name: go-gvlgsaak-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-gvlgsaak
